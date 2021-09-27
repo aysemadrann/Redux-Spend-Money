@@ -1,0 +1,9 @@
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+  }
+  .margin__div{
+      margin: 10px;
+  }

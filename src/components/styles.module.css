@@ -1,0 +1,10 @@
+.navbar{
+    text-align: center;
+    margin: 20px;
+}
+.navbar img{
+    border-radius: 50%;
+}
+.navbar h2{
+    display: block;
+}
