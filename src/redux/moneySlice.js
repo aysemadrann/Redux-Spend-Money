@@ -93,10 +93,25 @@ export const moneySlice = createSlice({
         money:100000,
 
     },
-    reducers:{},
+    reducers:{
+        handleChange: (state, action) => {
+            state.items.quantity = action.payload;
+
+        },
+        increment: (state, action) => {
+            const index = state.items.findIndex(todo => todo.id === action.payload);
+            (state.items[index].quantity) += 1;
+
+        },
+
+
+          
+        
+    },
     extraReducers:{},
 });
 
 export const ProductSelector = (state) => state.moneys.items;
 export const moneySelector = (state) => state.moneys.money;
+export const { handleChange, increment } = moneySlice.actions;
 export default moneySlice.reducer;
