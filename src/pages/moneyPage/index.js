@@ -1,7 +1,7 @@
 import React from 'react';
 import Styles from './styles.module.css';
 import { useSelector } from 'react-redux';
-import { moneySelector, moneyEndSelector } from '../../redux/moneySlice';
+import { moneyEndSelector } from '../../redux/moneySlice';
 
 
 

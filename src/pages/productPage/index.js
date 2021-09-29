@@ -18,6 +18,11 @@ function Product() {
         dispatch(increment(id));
 
     };
+    function disable() {
+        var btn = document.getElementById('sell');
+        btn.disabled = true;
+        
+    }
     
     const list = productList.map((item) => {
         return (
@@ -27,7 +32,7 @@ function Product() {
                           <Card.Title>{item.title}</Card.Title>
                           <Card.Text>${item.price}</Card.Text>
                           <div className='row'>
-                          <Button onClick={() => handleDecrement(item.id)} className='col-xl-4' variant="danger">Sell</Button>
+                          <Button id='sell' onClick={() => handleDecrement(item.id)} className='col-xl-4' variant="danger">Sell</Button>
                             <input onChange={() => handleChange()} className='col-xl-4 text-center'value={item.quantity} type="number" />
                           <Button onClick={() => handleIncrement(item.id)} className='col-xl-4' variant="success">Buy</Button>
                           </div>
