@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Table } from 'react-bootstrap';
-import { useSelector } from 'react-redux';
-import { ProductSelector } from '../../redux/moneySlice';
+import { useSelector, useDispatch } from 'react-redux';
+import { ProductSelector, showTotalAmount, totalAmountSelector, } from '../../redux/moneySlice';
 import Styles from './styles.module.css';
 
 function Basket() {
 
     const ProductList = useSelector(ProductSelector);
+    const totalAmount = useSelector(totalAmountSelector);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(showTotalAmount());
+      }, [ProductList, dispatch]);
 
     return (
         <div className='container'>
@@ -32,8 +38,9 @@ function Basket() {
                 </Table>
                 </div>
                
-)
+                )
             }
+            <p>{totalAmount}</p>
         </div>
     )
 }

@@ -91,6 +91,7 @@ export const moneySlice = createSlice({
             },
         ],
         moneyEnd:1000,
+        totalAmount: 0,
 
 
     },
@@ -112,6 +113,14 @@ export const moneySlice = createSlice({
             state.items[index].quantity +=1;
             state.moneyEnd = (state.moneyEnd - (state.items[index].price));
         },
+        showTotalAmount: (state) => {
+            // total receipt amount calculation
+            let total = 0;
+            state.items.map((item) => {
+              total += item.quantity * item.price;
+            });
+            state.totalAmount = total;
+          },
 
 
     },
@@ -121,5 +130,6 @@ export const moneySlice = createSlice({
 export const ProductSelector = (state) => state.moneys.items;
 export const moneySelector = (state) => state.moneys.money;
 export const moneyEndSelector = (state) => state.moneys.moneyEnd;
-export const { handleChange, increment, decrement } = moneySlice.actions;
+export const totalAmountSelector = (state) => state.moneys.totalAmount;
+export const { handleChange, increment, decrement, showTotalAmount } = moneySlice.actions;
 export default moneySlice.reducer;

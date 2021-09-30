@@ -18,11 +18,7 @@ function Product() {
         dispatch(increment(id));
 
     };
-    function disable() {
-        var btn = document.getElementById('sell');
-        btn.disabled = true;
-        
-    }
+ 
     
     const list = productList.map((item) => {
         return (
